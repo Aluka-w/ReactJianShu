@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import qrcode from '../../statics/qrcode.jpeg';
 export const HomeWrapper = styled.div`
   width: 960px;
   margin: 30px auto;
@@ -71,10 +72,58 @@ export const ListInfo = styled.div`
     color: #999;
   }
 `;
+export const QRCodeWrapper = styled.div`
+  margin-top: 20px;
+  margin-bottom: 30px;
+  padding: 10px 22px;
+  width: 100%;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  background-color: #fff;
+`;
+export const QRImg = styled.div`
+  width: 60px;
+  height: 60px;
+  opacity: .85;
+  background: url(${qrcode});
+  background-size: contain;
+  display: inline-block;
+`;
+export const QRWord = styled.div`
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 10px;
+  margin-left: 15px;
+  cursor: pointer;
+  font-size: 15px;
+  color: #333;
+  .me {
+    display: block;
+    padding-top: 8px;
+    font-size: 13px;
+    color: #999;
+  }
+}
+`;
+export const BigQRImg = styled.div`
+  width: 200px;
+  height: 200px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .1);
+  position: absolute;
+  top: 75px;
+  left: 50px;
+  background: #fff url(${qrcode}) no-repeat center center;
+  background-size: 85% 85%;
+  background-clip: padding-box;
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #999;
+`;
 export const RecommenWrapper = styled.div`
   width: 280px;
   margin-top: -4px;
   padding-bottom: 4px;
+  position: relative;
   min-height: 228px;
 `;
 export const RecommenItem = styled.div`

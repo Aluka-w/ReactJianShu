@@ -6,7 +6,8 @@ const initaData = (data) => ({
   type: constans.INIT_DATA,
   list: fromJS(data.list),
   topic: fromJS(data.topic),
-  recommend: fromJS(data.recommend)
+  recommend: fromJS(data.recommend),
+  swiperList: fromJS(data.swiperList)
 })
 const loadMore = (data, nextPage) => ({
   type: constans.LOAD_MORE,
@@ -31,5 +32,13 @@ export const loadMoreAction = (page) => {
 }
 export const changeScrollAction = (flag) => ({
   type: constans.CHANG_SCROLL,
+  flag: flag
+})
+export const mouserEnterAction = (flag) => ({
+  type: constans.MOUSE_ENTER,
+  flag: flag
+})
+export const mouseLeaveAction = (flag) => ({
+  type: constans.MOUSE_LEAVE,
   flag: flag
 })

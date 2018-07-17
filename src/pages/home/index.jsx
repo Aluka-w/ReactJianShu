@@ -5,6 +5,7 @@ import Recommend from "./components/Recommend";
 import Topic from "./components/Topic";
 import Writer from "./components/Writer";
 import { actionCreators } from "./store";
+import { Carousel } from 'antd';
 import {
   HomeWrapper,
   HomeLeft,
@@ -17,11 +18,17 @@ class Home extends PureComponent {
     this.bindEvent = this.bindEvent.bind(this)
   }
   render () {
-    const {handleScrollTop, isShowBack} = this.props
+    const {handleScrollTop, isShowBack, swiperList} = this.props
     return (
       <HomeWrapper>
         <HomeLeft>
-          <img className="banner-img" src="https://upload.jianshu.io/admin_banners/web_images/4349/5a2f0950cdda358517b737a9a961471be0241287.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/1250/h/540" alt=""/>
+        <Carousel autoplay>
+          {
+            swiperList.map(item => {
+              return <img className="banner-img" key={item.get('id')} src={item.get('img')} alt=""/>
+            })
+          }
+        </Carousel>
           <Topic></Topic>
           <List></List>
         </HomeLeft>
@@ -48,7 +55,8 @@ class Home extends PureComponent {
 }
 const mapState = (state) => {
   return {
-    isShowBack: state.getIn(['home', 'isShowBack'])
+    isShowBack: state.getIn(['home', 'isShowBack']),
+    swiperList: state.getIn(['home', 'swiperList'])
   }
 }
 const mapDispatch = (dispatch) => {
