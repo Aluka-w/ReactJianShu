@@ -140,8 +140,26 @@ export const WriteWrapper = styled.div`
   border: 1px solid #dcdcdc;
   border-radius: 3px;
   height: 300px;
-  line-height: 300px;
   text-align: center;
+  padding: 5px;
+`;
+export const WriterTitle = styled.div`
+  width: 100%;
+  overflow: hidden;
+`;
+export const WriterTitleItem = styled.div`
+  font-size: 14px;
+  color: #969696;
+  &.left {
+    float: left;
+  }
+  &.right {
+    float: right;
+    .spin {
+      font-size: 12px;
+      margin-right: 3px;
+    }
+  }
 `;
 export const LoadMore = styled.div`
   width: 100%;

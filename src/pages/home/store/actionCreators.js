@@ -25,8 +25,8 @@ export const initDataAction = () => {
 export const loadMoreAction = (page) => {
   return (dispatch) => {
     axios.get(`/api/homeLoadMore.json?page=${page}`).then(res => {
-      const action = loadMore(res.data.message, (page + 1))
-      dispatch(action)
+      dispatch(loadMore(res.data.message, (page + 1)))
+      dispatch(loadMoreSpinAction(false))
     })
   }
 }
@@ -40,5 +40,9 @@ export const mouserEnterAction = (flag) => ({
 })
 export const mouseLeaveAction = (flag) => ({
   type: constans.MOUSE_LEAVE,
+  flag: flag
+})
+export const loadMoreSpinAction = (flag) => ({
+  type: constans.LOAD_MORE_SPIN,
   flag: flag
 })

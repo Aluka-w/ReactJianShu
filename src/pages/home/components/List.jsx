@@ -2,6 +2,7 @@ import React, {PureComponent, Fragment } from "react";
 import { connect } from "react-redux";
 import { actionCreators } from "../store";
 import { Link } from "react-router-dom";
+import { Spin } from 'antd';
 import { 
   ListWrapper,
   ListInfo,
@@ -9,7 +10,7 @@ import {
  } from "../style";
 class List extends PureComponent {
   render () {
-    const {list, page, handleLoadMore} = this.props
+    const {list, page, isShowLoadMore, handleLoadMore} = this.props
     return (
       <Fragment>
         {
@@ -27,7 +28,13 @@ class List extends PureComponent {
           )
           })
         }
-        <LoadMore onClick={() => handleLoadMore(page)}>加载更多</LoadMore>
+        <LoadMore onClick={() => handleLoadMore(page)}>
+          {
+            isShowLoadMore ? 
+            <span>加载更多</span> :
+            <Spin spinning={true}/>
+          }
+        </LoadMore>
       </Fragment>
     )
   }
@@ -35,14 +42,15 @@ class List extends PureComponent {
 const mapState = (state) => {
   return {
     list: state.getIn(['home', 'list']),
-    page: state.getIn(['home', 'page'])
+    page: state.getIn(['home', 'page']),
+    isShowLoadMore: state.getIn(['home', 'isShowLoadMore']),
   }
 }
 const mapDispatch = (dispatch) => {
   return {
     handleLoadMore (page) {
-      const action = actionCreators.loadMoreAction(page)
-      dispatch(action)
+      dispatch(actionCreators.loadMoreSpinAction(false))
+      dispatch(actionCreators.loadMoreAction(page))
     }
   }
 }

@@ -8,7 +8,8 @@ const defaultState = fromJS({
   swiperList: [],
   page: 1,
   isShowBack: false,
-  isShowQRCode: false
+  isShowQRCode: false,
+  isShowLoadMore: true
 })
 export default  (state = defaultState, action) => {
   switch (action.type) {
@@ -22,6 +23,8 @@ export default  (state = defaultState, action) => {
       return state.set('isShowQRCode', action.flag)
     case constans.MOUSE_LEAVE:
       return state.set('isShowQRCode', action.flag)
+    case constans.LOAD_MORE_SPIN:
+      return state.set('isShowLoadMore', action.flag)
     default:
       return state
   }
