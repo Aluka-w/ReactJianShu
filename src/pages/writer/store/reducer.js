@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import * as constans from './constans'
+// import * as constans from './constans'
 
 const defaultState = fromJS({
   

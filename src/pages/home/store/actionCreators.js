@@ -7,7 +7,9 @@ const initaData = (data) => ({
   list: fromJS(data.list),
   topic: fromJS(data.topic),
   recommend: fromJS(data.recommend),
-  swiperList: fromJS(data.swiperList)
+  swiperList: fromJS(data.swiperList),
+  writer: fromJS(data.writer),
+  totalPage: Math.ceil(data.writer.length / 5)
 })
 const loadMore = (data, nextPage) => ({
   type: constans.LOAD_MORE,
@@ -45,4 +47,8 @@ export const mouseLeaveAction = (flag) => ({
 export const loadMoreSpinAction = (flag) => ({
   type: constans.LOAD_MORE_SPIN,
   flag: flag
+})
+export const changePageAction = (page) => ({
+  type: constans.CHANGE_PAGE,
+  page: page
 })

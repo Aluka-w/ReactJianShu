@@ -4,3 +4,4 @@ export const CHANG_SCROLL = 'home/CHANG_SCROLL';
 export const MOUSE_ENTER = 'home/MOUSE_ENTER';
 export const MOUSE_LEAVE = 'home/MOUSE_LEAVE';
 export const LOAD_MORE_SPIN = 'home/LOAD_MORE_SPIN';
+export const CHANGE_PAGE = 'home/CHANGE_PAGE';
